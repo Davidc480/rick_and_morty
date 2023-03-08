@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import style from "./App.module.css";
+import Card from "./components/Card/Card";
+import Cards from "./components/Cards/Cards";
+import SearchBar from "./components/SearchBar/SearchBar.jsx";
+import characters, { Rick } from "./data.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.App}>
+      <div>
+        <div>
+          <SearchBar onSearch={(charactersID) => window.alert(charactersID)} />
+        </div>
+        <div>
+          <Card
+            name={Rick.name}
+            species={Rick.species}
+            gender={Rick.gender}
+            image={Rick.image}
+            onClose={() =>
+              window.alert(`La card de ${Rick.name} se ah cerrado `)
+            }
+          />
+        </div>
+        <div>
+          <Cards characters={characters} />
+        </div>
+      </div>
     </div>
   );
 }

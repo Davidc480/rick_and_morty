@@ -1,0 +1,28 @@
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8%;
+}
+
+.text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: small;
+    color:lightseagreen;
+    text-shadow: 0 0 15px rgba(8, 224, 240, 0.733);
+}
+
+.inputDeBusqueda {
+    width: 15em;
+    margin: 0.5em;
+    box-shadow: 0.5px 3px rgba(0, 0, 0, 0.2)
+}
+
+.button {
+    width: 5.2%;
+    color:aqua;
+    background-color: transparent;
+    border-radius: 0.5em;
+    border: 1px solid white;
+    box-shadow: 0 0 15px rgba(8, 224, 240, 0.356);
+}
