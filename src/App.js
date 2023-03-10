@@ -2,6 +2,10 @@ import style from "./App.module.css";
 import Cards from "./components/Cards/Cards";
 import Nav from "./components/Nav/Nav";
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./views/Home";
+import About from "./views/About";
+import Detail from "./views/Detail";
 
 function App() {
   function onSearch(character) {
@@ -26,14 +30,16 @@ function App() {
 
   return (
     <div className={style.App}>
-      <div>
-        <div>
-          <Nav onSearch={onSearch} />
-        </div>
-        <div>
-          <Cards characters={characters} onClose={onClose} />
-        </div>
-      </div>
+      <Nav onSearch={onSearch} />
+
+      <Routes>
+        <Route path="/home" element={Home}></Route>
+
+        <Route path="/about" element={About} />
+
+        <Route path="/detail/:detailId" element={Detail} />
+        {/* <Cards characters={characters} onClose={onClose} /> */}
+      </Routes>
     </div>
   );
 }
