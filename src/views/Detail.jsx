@@ -1,4 +1,4 @@
-
+import Detalle from "../components/Detail/Detail";
 
 const Detail = () => {
     return (

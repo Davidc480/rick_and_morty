@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
 import About from "./views/About";
-import Detail from "./views/Detail";
+import Detail from "./components/Detail/Detail";
 
 function App() {
   function onSearch(character) {
@@ -33,12 +33,14 @@ function App() {
       <Nav onSearch={onSearch} />
 
       <Routes>
-        <Route path="/home" element={Home}></Route>
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
 
-        <Route path="/about" element={About} />
+        <Route path="/about" element={<About />} />
 
-        <Route path="/detail/:detailId" element={Detail} />
-        {/* <Cards characters={characters} onClose={onClose} /> */}
+        <Route path="/detail/:detailId" element={<Detail />} />
       </Routes>
     </div>
   );
