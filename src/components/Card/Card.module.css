@@ -1,21 +1,19 @@
-.contenedor {
-    height: 20%;
-    width: 65%;
-    margin: 0 auto;
-}
-
 .tarjeta {
-    float: left;
+    
     width: 150px;
     height: 200px;
-    margin: 10px;
     padding: 10px;
-    border: 1px solid black;
+    margin: 10px;
+    margin-bottom: 80px;
+    border: 1px solid rgb(255, 255, 255);
     background-color: rgb(f, f, f, 0.050);
-    box-shadow: 2px 2px 5px grey;
+    box-shadow: 8px 9px 6px rgb(0, 0, 0);
     border-radius: 1em;
-    vertical-align: middle;
     z-index: -1;
+}
+
+.tarjeta:hover {
+    transform: scale(1.1);
 }
 
 .contenedorButton {
@@ -25,7 +23,6 @@
 }
 
 .button {
-    background-color: transparent;
     border: 1px solid white;
     border-radius: 100px;
     box-shadow: 0 0 8px #fff;

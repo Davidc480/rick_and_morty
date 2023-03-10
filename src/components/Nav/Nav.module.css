@@ -1,0 +1,15 @@
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    width: 70%;
+    height: 50px;
+    background-color: rgb(53, 53, 53);
+    border-radius: 10em;
+    background: linear-gradient(to bottom, #333333, #666666);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5%;
+}

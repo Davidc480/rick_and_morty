@@ -1,15 +1,17 @@
 import React from 'react';
 import Card from '../Card/Card';
+import Style from "./Cards.module.css"
 
-export default function Cards({characters}) {
-const onClose=() => window.alert(`La card de se ah cerrado `)
+export default function Cards({characters, onClose}) {
+
 
       return (
-        <div>
+        <div className={Style.contenedor}>
          
-      {characters.map(({name, species, gender, image}) => {
+      {characters.map(({id, name, species, gender, image}) => {
          return (
             <Card
+            id={id}
             name={name}
             species={species}
             gender={gender}

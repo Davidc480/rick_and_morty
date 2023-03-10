@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 8%;
 }
 
 .text {
@@ -14,12 +13,11 @@
 
 .inputDeBusqueda {
     width: 15em;
-    margin: 0.5em;
+    margin: 1em;
     box-shadow: 0.5px 3px rgba(0, 0, 0, 0.2)
 }
 
 .button {
-    width: 5.2%;
     color:aqua;
     background-color: transparent;
     border-radius: 0.5em;

@@ -1,12 +1,12 @@
 import React from "react";
 import style from "./Card.module.css"
 
-export default function Card({name, species, gender, image, onClose}) {
+export default function Card({id, name, species, gender, image, onClose}) {
    return (
       <div className={style.contenedor}>
          <div className={style.tarjeta}>
          <div className={style.contenedorButton}>
-            <button className={style.button} onClick={onClose}>X</button>
+            <button className={style.button} onClick={()=> onClose(id)}>X</button>
          </div>
             <img  className={style.image} src={image} alt="" />
             <div className={style.propiedades}>
