@@ -4,7 +4,6 @@ import Style from "./Cards.module.css"
 
 export default function Cards({characters, onClose}) {
 
-
       return (
         <div className={Style.contenedor}>
          

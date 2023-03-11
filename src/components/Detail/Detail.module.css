@@ -1,0 +1,64 @@
+.contenedor {
+    display: flex;
+    justify-content: center;
+}
+
+.img {
+    position: relative;
+    top: 0px;
+    left: 9%;
+    border: 2px solid black;
+    border-radius: 2em;
+    box-shadow: 0px 0px 20px rgb(108, 255, 152);
+    width: auto;
+    height: 290px;
+}
+
+.img:hover {
+    transform: scale(1.04);
+}
+
+.loading {
+    font-size: 100px;
+    color: white;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px -1px 0 black, 1px -1px 0 black;      
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    font-size: xx-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.205);
+    top: -15%;
+
+
+}
+
+.propi {
+    display:block;
+    justify-content: center;
+    font-size: 1.6em;
+    font-family:'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.205);
+    position: relative;
+    top: -35px;
+    left: 0px;
+}
+
+.tarjeta {
+ 
+    width: 350px;
+    height: 215px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    padding: 22px;
+    margin: 15px;
+}
+
+.tarjeta:hover {
+    transform: scale(1.04);
+}

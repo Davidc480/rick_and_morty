@@ -23,6 +23,17 @@
    
 }
 
-.espacio {
-    padding-right: 20px;
+.home {
+    font-size:x-large;
+    position: relative;
+    top: -19px;
+    left: 9em;
+}
+
+.about {
+    font-size:x-large;
+    position: relative;
+    top: -19px;
+    left: 62%;
+
 }

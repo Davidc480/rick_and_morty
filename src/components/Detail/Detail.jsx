@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Style from "./Detail.module.css"
 import axios from "axios";
 
 const Detail = () => {
@@ -16,19 +17,23 @@ const Detail = () => {
     }, [])
 
     return (
-       <div>
+       <div className={Style.contenedor}>
         {
             character.name  ?(
             <>
-            <h2>{character.name}</h2>
-            <p>{character.status}</p>
-            <p>{character.species}</p>
-            <p>{character.gender}</p>
-            <p>{character.Origin?.name}</p>
-            <img src={character.image} alt="img"></img>
+                <div className={Style.tarjeta}>
+            <h2 className={Style.titulo}>{character.name}</h2>
+                  <div className={Style.propi}>
+                    <p>{character.status}</p>
+                      <p>{character.species}</p>
+                     <p>{character.gender}</p>
+                    <p>{character.Origin?.name}</p>
+                  </div>
+            </div>
+            <img className={Style.img} src={character.image} alt="img"></img>
             </>)
             : (
-                <h3>Loading...</h3>
+                <h3 className={Style.loading}>Loading...</h3>
               )}
        </div>
     )

@@ -2,10 +2,11 @@ import style from "./App.module.css";
 import Cards from "./components/Cards/Cards";
 import Nav from "./components/Nav/Nav";
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import Home from "./views/Home";
-import About from "./views/About";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Detail from "./components/Detail/Detail";
+import About from "./components/About/About";
+import Form from "./components/Form/Form";
+import Error404 from "./components/Error404/Error404";
 
 function App() {
   function onSearch(character) {
@@ -28,11 +29,17 @@ function App() {
     setCharacters(characters.filter((characters) => characters.id !== id));
   };
 
+  const location = useLocation();
+
   return (
     <div className={style.App}>
-      <Nav onSearch={onSearch} />
-
       <Routes>
+        {location.pathname === "/" ? (
+          <Route path="/" element={<Form />} />
+        ) : (
+          <Nav onSearch={onSearch} />
+        )}
+
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
@@ -41,6 +48,10 @@ function App() {
         <Route path="/about" element={<About />} />
 
         <Route path="/detail/:detailId" element={<Detail />} />
+
+        <Route path="/error404" element={<Error404 />} />
+
+        <Route path="*" element={<Navigate to="/error404" replace />} />
       </Routes>
     </div>
   );
