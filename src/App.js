@@ -1,8 +1,14 @@
 import style from "./App.module.css";
 import Cards from "./components/Cards/Cards";
 import Nav from "./components/Nav/Nav";
-import { useState } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import Detail from "./components/Detail/Detail";
 import About from "./components/About/About";
 import Form from "./components/Form/Form";
@@ -24,22 +30,36 @@ function App() {
   }
 
   const [characters, setCharacters] = useState([]);
+  const navigate = useNavigate();
+  const [accseso, setacceso] = useState(false);
+
+  useEffect(() => {
+    !accseso && navigate("/");
+  }, [accseso]);
 
   const onClose = (id) => {
     setCharacters(characters.filter((characters) => characters.id !== id));
   };
 
+  const login = (userData) => {
+    if (userData.username === username && userData.password === password) {
+      setacceso(true);
+      navigate("/home");
+    } else {
+      alert("Email o contraseña incorrectos");
+    }
+  };
+
+  const username = "dav@gmail.com";
+  const password = "dav123";
+
   const location = useLocation();
 
   return (
     <div className={style.App}>
+      {location.pathname !== "/" && <Nav onSearch={onSearch} />}
       <Routes>
-        {location.pathname === "/" ? (
-          <Route path="/" element={<Form />} />
-        ) : (
-          <Nav onSearch={onSearch} />
-        )}
-
+        <Route path="/" element={<Form login={login} />} />
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}

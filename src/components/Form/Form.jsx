@@ -1,66 +1,67 @@
 import React from "react";
 import Style from "./Form.module.css"
 import Validation from "./Validation";
+import { useState } from "react";
 
 
-export default function Form() {
+const  Form = ({login}) => {
 
-    const [userData, setUserData] = React.useState({
+    const [userData, setUserData] = useState({
         username: "",
-        password: ""
+        password: "",
+    });
+
+    const [errors, setErrors] = useState({
+        username: "",
+        password: "",
     });
 
     const handleInputChange = (event)=>{
         const property = event.target.name;
         const value = event.target.value;
 
-        setUserData({...userData, [property]: value})
-        // Validation({...userData, [property]: value}, setErrors, errors)
+        setUserData({...userData, [property]: value});
+        Validation({...userData, [property]: value}, errors, setErrors);
         
     };
-    
-    const [errors, setErrors] = React.useState({
-        username: "",
-        password: "",
-    });
-    
-    const submitHandler = (event)=>{
+
+    const submitHandler = (event) => {
         event.preventDefault();
-        alert("Login exitoso")
-    }
+        login(userData);
+      };
+
     
     return(
         
-        <form onSubmit={submitHandler} className={Style.contenedor}>
-
-            
- 
+        <form  onSubmit={submitHandler} className={Style.contenedor}>
 
         <div className={Style.pocision}>
         <div>
-            <label className={Style.username} form="username">username:  </label>
+            <label className={Style.username} htmlFor="username">username:  </label>
              <input 
               type="text"
               name="username"
               value={userData.username}
               onChange={handleInputChange}
               />
-        <div>{errors.username}</div>
+              <p> {errors.username} </p>
         </div>
-        <br></br>
+       
         <div>
-            <label className={Style.password} form="password">Password:    </label>
+            <label className={Style.password} htmlfor="password">Password:    </label>
              <input 
               type="text"
               name="password"
               value={userData.password}
               onChange={handleInputChange}
               />
+        </div>
         <div>
             <button className={Style.button} type="submit">Login</button>
         </div>
-        </div>
               </div>
        </form>
-    )
-}
+    );
+};
+
+export default Form;
