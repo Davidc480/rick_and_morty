@@ -1,8 +1,20 @@
 import React from "react";
 import style from "./Card.module.css"
 import { Link } from "react-router-dom";
+import {addFavorite, deleteFavorite} from "../../redux/actions"
 
 export default function Card({id, name, species, gender, image, onClose}) {
+
+   
+
+   const [isFav, setIsFav] = useState(false);
+
+   useEffect(() => {
+      dispatch(addFavorite()),
+      dispatch(deleteFavorite())
+    }, []);
+
+
    return (
       <div className={style.contenedor}>
          <div className={style.tarjeta}>
