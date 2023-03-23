@@ -16,9 +16,9 @@ import Error404 from "./components/Error404/Error404";
 
 function App() {
   function onSearch(character) {
-    const URL_BASE = "https://be-a-rym.up.railway.app/api";
+    const URL_BASE = "http://localhost:3001/rickandmorty/character";
     const API_KEY = "9fc2ee82c5e8.be8d85f149238870102d";
-    fetch(`${URL_BASE}/character/${character}?key=${API_KEY}`)
+    fetch(`${URL_BASE}/${character}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.name && !characters.find((char) => char.id === data.id)) {
