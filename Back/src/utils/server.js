@@ -6,9 +6,9 @@ http
     res.setHeader("Access-Control-Allow-Origin", "*");
 
     const { url } = req;
-    if (url.includes("rickandmorty/character")) {
+    if (url.includes("onsearch")) {
       const id = url.split("/").at(-1);
-      const character = data.find((charac) => charac.id == id);
+      getCharById(res, id);
 
       if (character) {
         res.writeHead(200, { "Content-Type": "application/json" });
