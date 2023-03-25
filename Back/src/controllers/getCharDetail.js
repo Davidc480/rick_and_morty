@@ -1,5 +1,3 @@
-const getCharDetail = {};
-
 const axios = require("axios");
 
 const KEY = "9fc2ee82c5e8.be8d85f149238870102d";
@@ -16,11 +14,11 @@ const error = (res, error) => {
   res.end(error.message);
 };
 
-const getCharById = (res, id) => {
+const getCharDetail = (res, id) => {
   axios
     .get(`${URL}/${id}?key=${KEY}`)
     .then((response) => success(response, res))
-    .catch((error) => error(error, res));
+    .catch((err) => error(res, err));
 };
 
 module.exports = getCharDetail;
