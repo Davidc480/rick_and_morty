@@ -1,21 +1,8 @@
-const http = require("http");
-const getCharById = require("./controllers/getCharByid");
-const getCharDetail = require("./controllers/getCharDetail");
+const express = require("express");
 
-http
-  .createServer((req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+const server = express();
+const PORT = 3001;
 
-    const { url } = req;
-
-    if (url.includes("onsearch")) {
-      const id = url.split("/").at(-1);
-      getCharById(res, id);
-    }
-
-    if (url.includes("detail")) {
-      const id = url.split("/").at(-1);
-      getCharDetail(res, id);
-    }
-  })
-  .listen(3001, "localhost");
+server.listen(PORT, () => {
+  console.log("server raised in port: " + PORT);
+});
