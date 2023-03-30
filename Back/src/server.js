@@ -1,8 +1,11 @@
 const express = require("express");
+const morgan = require("morgan");
+const mainRouter = require("./routes/routes");
 
 const server = express();
-const PORT = 3001;
 
-server.listen(PORT, () => {
-  console.log("server raised in port: " + PORT);
-});
+server.use(morgan("dev"));
+
+server.use(mainRouter);
+
+module.exports = server;

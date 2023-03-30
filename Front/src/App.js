@@ -13,6 +13,7 @@ import Detail from "./components/Detail/Detail";
 import About from "./components/About/About";
 import Form from "./components/Form/Form";
 import Error404 from "./components/Error404/Error404";
+import Favorites from "./components/Favorites/favorites";
 
 function App() {
   function onSearch(character) {
@@ -66,6 +67,8 @@ function App() {
         />
 
         <Route path="/about" element={<About />} />
+
+        <Route path="/favorite" element={<Favorites />} />
 
         <Route path="/detail/:detailId" element={<Detail />} />
 

@@ -17,6 +17,11 @@ export default function Nav ({onSearch}){
                     <p>About</p>
                 </Link>
           </div>
+            <div className={Style.favorites}>
+                <Link to="/favorites">
+                    <p>Favorites</p>
+                </Link>
+          </div>
         <div className={Style.nav}>
             <SearchBar onSearch={onSearch}/>
         </div>

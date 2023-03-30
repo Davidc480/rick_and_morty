@@ -9,15 +9,7 @@ function Card({id, name, species, gender, image, onClose, addFavorite, deleteFav
 
    const [isFav, setIsFav] = useState(false);
 
-   // useEffect(()=>{
-   //    myFavorites.forEach((fav) => {
-   //       if(fav.id === id){
-   //          setIsFav(true)
-   //       }
-         
-   //    });
-   // }, [myFavorites]);
-
+   
    const handleFavorite = ()=> {
       if (isFav){
          setIsFav(false);
@@ -27,6 +19,16 @@ function Card({id, name, species, gender, image, onClose, addFavorite, deleteFav
          addFavorite({id, name, species, gender, image, onClose})
       }
    }
+
+   
+   useEffect(()=>{
+      myFavorites.forEach((fav) => {
+         if(fav.id === id){
+            setIsFav(true)
+         }
+         
+      });
+   }, [myFavorites]);
 
    return (
       <div className={style.contenedor}>
