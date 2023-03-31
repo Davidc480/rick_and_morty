@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux"
-
-
+import Card from '../Card/Card';
 
 
 const Favorites = () => {

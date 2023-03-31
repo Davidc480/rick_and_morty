@@ -1,18 +1,18 @@
 import React from "react";
 import Style from "./Form.module.css"
-import Validation from "./Validation";
+// import Validation from "./Validation";
 import { useState } from "react";
 
 
 const  Form = ({login}) => {
 
     const [userData, setUserData] = useState({
-        username: "",
+        email: "",
         password: "",
     });
 
     const [errors, setErrors] = useState({
-        username: "",
+        email: "",
         password: "",
     });
 
@@ -21,7 +21,7 @@ const  Form = ({login}) => {
         const value = event.target.value;
 
         setUserData({...userData, [property]: value});
-        Validation({...userData, [property]: value}, errors, setErrors);
+        // Validation({...userData, [property]: value}, errors, setErrors);
         
     };
 
@@ -37,14 +37,14 @@ const  Form = ({login}) => {
 
         <div className={Style.pocision}>
         <div>
-            <label className={Style.username} htmlFor="username">username:  </label>
+            <label className={Style.email} htmlFor="username">email:  </label>
              <input 
               type="text"
-              name="username"
-              value={userData.username}
+              name="email"
+              value={userData.email}
               onChange={handleInputChange}
               />
-              <p> {errors.username} </p>
+              <p> {errors.email} </p>
         </div>
        
         <div>

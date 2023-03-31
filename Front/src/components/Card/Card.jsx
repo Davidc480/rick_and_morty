@@ -3,9 +3,9 @@ import style from "./Card.module.css"
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
-import {addFavorite, deleteFavorite} from "../../redux/actions"
+import {addFav, REMOVE_FAV} from "../../redux/actions"
 
-function Card({id, name, species, gender, image, onClose, addFavorite, deleteFavorite, myFavorites}) {
+function Card({id, name, species, gender, image, onClose, addFav, REMOVE_FAV, myFavorites}) {
 
    const [isFav, setIsFav] = useState(false);
 
@@ -13,10 +13,10 @@ function Card({id, name, species, gender, image, onClose, addFavorite, deleteFav
    const handleFavorite = ()=> {
       if (isFav){
          setIsFav(false);
-         deleteFavorite(id) 
+         REMOVE_FAV(id) 
       } else {
          setIsFav(true);
-         addFavorite({id, name, species, gender, image, onClose})
+         addFav({id, name, species, gender, image, onClose})
       }
    }
 
@@ -65,11 +65,11 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
    return{ 
-      addFavorite: (character)=>{
-         dispatch(addFavorite(character))
+      addFav: (character)=>{
+         dispatch(addFav(character))
       },
-      deleteFavorite: (id)=>{
-         dispatch(deleteFavorite(id))
+      REMOVE_FAV: (id)=>{
+         dispatch(REMOVE_FAV(id))
       }
    }
 }

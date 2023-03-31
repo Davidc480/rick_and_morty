@@ -14,11 +14,12 @@ import About from "./components/About/About";
 import Form from "./components/Form/Form";
 import Error404 from "./components/Error404/Error404";
 import Favorites from "./components/Favorites/favorites";
+import axios from "axios";
 
 function App() {
   function onSearch(character) {
     const URL_BASE = "http://localhost:3001/rickandmorty/character";
-    const API_KEY = "9fc2ee82c5e8.be8d85f149238870102d";
+    // const API_KEY = "9fc2ee82c5e8.be8d85f149238870102d";
     fetch(`${URL_BASE}/${character}`)
       .then((res) => res.json())
       .then((data) => {
@@ -42,17 +43,15 @@ function App() {
     setCharacters(characters.filter((characters) => characters.id !== id));
   };
 
-  const login = (userData) => {
-    if (userData.username === username && userData.password === password) {
-      setacceso(true);
-      navigate("/home");
-    } else {
-      alert("Email o contraseña incorrectos");
-    }
-  };
-
-  const username = "dav@gmail.com";
-  const password = "dav123";
+  function login(userData) {
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setacceso(data);
+      access && navigate("/home");
+    });
+  }
 
   const location = useLocation();
 
@@ -68,7 +67,7 @@ function App() {
 
         <Route path="/about" element={<About />} />
 
-        <Route path="/favorite" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites />} />
 
         <Route path="/detail/:detailId" element={<Detail />} />
 
