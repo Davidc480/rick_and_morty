@@ -1,10 +1,10 @@
-const UserModel = require("../DB_connection");
+const { User } = require("../DB_connection");
 
 const postUser = async (req, res) => {
   const { email, password } = req.body;
 
   email.length > 0 && password.length > 0
-    ? await UserModel.findOrCreate({
+    ? await User.findOrCreate({
         where: { email },
         defaults: { password },
       })
