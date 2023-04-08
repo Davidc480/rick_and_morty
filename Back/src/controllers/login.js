@@ -4,7 +4,7 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.query;
     const user = await User.findOne({ where: { email } });
-    email.lengt > 0 && password.length > 0
+    email.length > 0 && password.length > 0
       ? user
         ? password == user.password
           ? res.status(200).json({ access: true })

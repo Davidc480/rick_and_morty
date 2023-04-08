@@ -3,8 +3,11 @@ const { User } = require("../DB_connection");
 const postUser = async (req, res) => {
   const { email, password } = req.body;
 
-  email.length > 0 && password.length > 0
-    ? await User.findOrCreate({
+  if (!email && !password) {
+    res.status(400).json({ error: "Faltan datos" });
+  } else if (email.length > 0 && password.length > 0) {
+    try {
+      await User.findOrCreate({
         where: { email },
         defaults: { password },
       })
@@ -13,8 +16,11 @@ const postUser = async (req, res) => {
         })
         .catch((error) => {
           res.status(500).json({ error: error.message });
-        })
-    : res.status(400).json({ error: "Faltan datos" });
+        });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
 };
 
 module.exports = postUser;
