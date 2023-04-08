@@ -5,13 +5,12 @@ const postFav = async (req, res) => {
 
   if ((name, origin, status, image, species, gender)) {
     try {
-      const [Favorite, created] = await Favorite.findOrCreate({
+      const [favorite, created] = await Favorite.findOrCreate({
         where: { name },
         defaults: { origin, status, image, species, gender },
       });
-
       const characters = await Favorite.findAll();
-      res.status(200).json({ characters });
+      res.status(200).json({ created: created, characters });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
