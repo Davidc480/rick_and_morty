@@ -5,6 +5,7 @@ const { conn } = require("./src/DB_connection");
 const PORT = process.env.PORT || 3001;
 
 //prueba vercel
+const user = [];
 
 conn.sync({ force: true }).then(() => {
   server.listen(PORT, () => {
